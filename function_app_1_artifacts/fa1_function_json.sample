@@ -1,0 +1,26 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "mytimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */3 * * * *"
+    },
+    {
+	"name":"msg",
+	"type":"queue",
+	"queueName":"outqueue",
+	"direction":"out",
+	"connection":"AzureWebJobsStorage"
+    },
+    {
+	"name":"message",
+	"type":"table",
+	"tableName":"rawdata",
+	"partitionKey":"message",
+	"direction":"out",
+	"connection":"AzureWebJobsStorage"
+    }
+  ]
+}
